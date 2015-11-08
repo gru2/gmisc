@@ -19,6 +19,7 @@ public:
 	char getChar();
 	void putBackChar();
 	void putBackChars(int count);
+	char lookAhead(int n);
 	bool isEof();
 	int getPosition() { return position; }
 	void setPosition(int x);

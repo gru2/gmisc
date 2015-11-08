@@ -69,6 +69,14 @@ void InputStream::putBackChars(int count)
 		putBackChar();
 }
 
+char InputStream::lookAhead(int n)
+{
+	int p = postion + n;
+	if (p >= (int)buffer.size() || p < 0)
+		return 0;
+	return buffer[p];
+}
+
 bool InputStream::isEof()
 {
 	if (position >= (int)buffer.size())
@@ -92,3 +100,4 @@ void InputStream::error(const std::string &msg)
 	assert(errorReporter);
 	errorReporter->error(msg);
 }
+
