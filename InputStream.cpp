@@ -71,7 +71,7 @@ void InputStream::putBackChars(int count)
 
 char InputStream::lookAhead(int n)
 {
-	int p = postion + n;
+	int p = position + n;
 	if (p >= (int)buffer.size() || p < 0)
 		return 0;
 	return buffer[p];
