@@ -3,7 +3,7 @@
 
 #include <string>
 
-#define SUTF_REGISTER_TEST(x) \
+#define SUTF_TEST(x) \
 void x(); \
 static Sutf::Initializer initializer##x(x, #x); \
 void x()
@@ -19,6 +19,8 @@ public:
 	Initializer(TestType x, const std::string &name);
 
 	static Initializer *getTests();
+	static void setLastTest(const std::string &name);
+	static Initializer **findTest(const std::string &name);
 
 	TestType getTest() const { return test; }
 	void setTest(TestType x) { test = x; }
